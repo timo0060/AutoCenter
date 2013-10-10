@@ -72,6 +72,8 @@
             this.AddOnCalculateButton = new System.Windows.Forms.Button();
             this.AddOnTotalLabel = new System.Windows.Forms.Label();
             this.AddOnTotalTextBox = new System.Windows.Forms.TextBox();
+            this.ClearButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.Menu.SuspendLayout();
             this.Tab.SuspendLayout();
             this.BaseCostTab.SuspendLayout();
@@ -108,6 +110,7 @@
             this.ExitMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.ExitMenu.Size = new System.Drawing.Size(152, 24);
             this.ExitMenu.Text = "Exit";
+            this.ExitMenu.Click += new System.EventHandler(this.ExitMenu_Click);
             // 
             // Tab
             // 
@@ -440,7 +443,7 @@
             this.SalesTaxTextBox.Name = "SalesTaxTextBox";
             this.SalesTaxTextBox.Size = new System.Drawing.Size(47, 22);
             this.SalesTaxTextBox.TabIndex = 4;
-            this.SalesTaxTextBox.Text = "0.0%";
+            this.SalesTaxTextBox.Text = "0%";
             this.SalesTaxTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TotalCalculateButton
@@ -541,9 +544,31 @@
             this.AddOnTotalTextBox.TabIndex = 4;
             this.AddOnTotalTextBox.Text = "$0.00";
             // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(369, 470);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.TabIndex = 8;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.Location = new System.Drawing.Point(369, 516);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(75, 23);
+            this.ExitButton.TabIndex = 9;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitMenu_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(471, 584);
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.TotalTextBox);
             this.Controls.Add(this.TotalLabel);
             this.Controls.Add(this.TotalCalculateButton);
@@ -581,39 +606,6 @@
 
         #endregion
 
-        /*private System.Windows.Forms.TabControl Tabs;
-        private System.Windows.Forms.TextBox TradeInTextBox;
-        private System.Windows.Forms.TextBox BaseCostTextBox;
-        private System.Windows.Forms.Label TradeInLabel;
-        private System.Windows.Forms.Button BaseCalculateButton;
-        private System.Windows.Forms.TextBox baseCostTotalTextBox;
-        private System.Windows.Forms.Label TotalBaseCostLabel;
-        private System.Windows.Forms.GroupBox ColourGroupBox;
-        private System.Windows.Forms.RadioButton RedRadioButton;
-        private System.Windows.Forms.RadioButton BlueRadioButton;
-        private System.Windows.Forms.RadioButton GreenRadioButton;
-        private System.Windows.Forms.RadioButton BlackRadioButton;
-        private System.Windows.Forms.RadioButton WhiteRadioButton;
-        private System.Windows.Forms.Label SalesTaxLabel;
-        private System.Windows.Forms.TextBox SalesTaxTextBox;
-        private System.Windows.Forms.Button TotalCalculateButton;
-        private System.Windows.Forms.Label TotalLabel;
-        private System.Windows.Forms.TextBox TotalTextBox;
-        private System.Windows.Forms.GroupBox RimsGroupBox;
-        private System.Windows.Forms.TextBox AppearanceTotalTextBox;
-        private System.Windows.Forms.Label AppearanceTotalLabel;
-        private System.Windows.Forms.RadioButton TwentyOneAeroRadioButton;
-        private System.Windows.Forms.RadioButton TwentyOneRadioButton;
-        private System.Windows.Forms.RadioButton NineTeenAeroRadioButton;
-        private System.Windows.Forms.RadioButton NineTeenRadioButton;
-        private System.Windows.Forms.Button AppearenceCalculateButton;
-        private System.Windows.Forms.GroupBox OtherGroupBox;
-        private System.Windows.Forms.CheckBox SunroofCheckBox;
-        private System.Windows.Forms.CheckBox TintCheckBox;
-        private System.Windows.Forms.GroupBox PackagesGroupBox;
-        private System.Windows.Forms.CheckBox ComfortCheckBox;
-        private System.Windows.Forms.CheckBox EntertainmentCheckBox;
-        private System.Windows.Forms.CheckBox TechCheckBox; */
         private System.Windows.Forms.MenuStrip Menu;
         private System.Windows.Forms.ToolStripMenuItem FileMenu;
         private System.Windows.Forms.ToolStripMenuItem ExitMenu;
@@ -658,6 +650,8 @@
         private System.Windows.Forms.CheckBox ComfortCheckBox;
         private System.Windows.Forms.CheckBox TechCheckBox;
         private System.Windows.Forms.CheckBox EntertainmentCheckBx;
+        private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.Button ExitButton;
     }
 }
 

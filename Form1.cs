@@ -14,6 +14,8 @@ namespace AutoCenter
     {
         //The total cost for the base model car
         double baseCostTotal = 0;
+        //The total trad in value
+        double tradeInAmount = 0;
         //The total variable for all the appearance costs
         double appearanceTotal = 0;
         //Total cost for all extra add-on's
@@ -36,8 +38,6 @@ namespace AutoCenter
             double d_baseCost;
             double d_tradeIn;
 
-            
-
             baseCost = "" + BaseCostTextBox.Text;
             tradeIn = "" + TradeInTextBox.Text;
 
@@ -47,9 +47,10 @@ namespace AutoCenter
             tradeIn = tradeIn.TrimStart(invalidChar);
             double.TryParse(tradeIn, out d_tradeIn);
 
-            baseCostTotal = d_baseCost - d_tradeIn;
-
+            baseCostTotal = d_baseCost;
+            tradeInAmount = d_tradeIn;
             baseCostTotalTextBox.Text = "$" + baseCostTotal.ToString("###,###,###.00");
+
         }
 
         private void AppearenceCalculateButton_Click(object sender, EventArgs e)
@@ -58,9 +59,6 @@ namespace AutoCenter
             double colourCost = 0;
             double rimCost = 0;
             double othersCost = 0;
-
-            //The total variable for all the appearance costs
-            double appearanceTotal = 0;
 
             //Check to see which paint colour is chosen.
             if (WhiteRadioButton.Checked || BlackRadioButton.Checked)
@@ -154,8 +152,34 @@ namespace AutoCenter
 
             d_tempFinalCost = baseCostTotal + appearanceTotal + addOnTotal;
 
-            totalFinalCost = d_tempFinalCost + (d_tempFinalCost * d_salesTax);
+            totalFinalCost = (d_tempFinalCost + (d_tempFinalCost * d_salesTax)) - tradeInAmount;
             TotalTextBox.Text = "$" + totalFinalCost.ToString("###,###,##0.00");
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            //Code from online source found here: http://stackoverflow.com/questions/4811229/how-to-clear-the-text-of-all-textboxes-in-the-form
+
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Text = "$0.00";
+                    else
+                        func(control.Controls);
+            };
+
+
+            func(Controls);
+
+            SalesTaxTextBox.Text = "0%";
+        }
+
+        private void ExitMenu_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
       
