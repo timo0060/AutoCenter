@@ -33,7 +33,16 @@
             this.ExitMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.Tab = new System.Windows.Forms.TabControl();
             this.BaseCostTab = new System.Windows.Forms.TabPage();
+            this.baseCostTotalTextBox = new System.Windows.Forms.TextBox();
+            this.BaseCostTotalLabel = new System.Windows.Forms.Label();
+            this.BaseCalculateButton = new System.Windows.Forms.Button();
+            this.TradeInTextBox = new System.Windows.Forms.TextBox();
+            this.TradeInLabel = new System.Windows.Forms.Label();
+            this.BaseCostTextBox = new System.Windows.Forms.TextBox();
+            this.BaseCostLabel = new System.Windows.Forms.Label();
             this.AppearanceTab = new System.Windows.Forms.TabPage();
+            this.AppearanceTotalTextBox = new System.Windows.Forms.TextBox();
+            this.AppearanceCostLabel = new System.Windows.Forms.Label();
             this.AppearanceCalculateButton = new System.Windows.Forms.Button();
             this.OtherGroupBox = new System.Windows.Forms.GroupBox();
             this.SunroofCheckBox = new System.Windows.Forms.CheckBox();
@@ -56,10 +65,9 @@
             this.TotalCalculateButton = new System.Windows.Forms.Button();
             this.TotalLabel = new System.Windows.Forms.Label();
             this.TotalTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.AppearanceTotalTextBox = new System.Windows.Forms.TextBox();
             this.Menu.SuspendLayout();
             this.Tab.SuspendLayout();
+            this.BaseCostTab.SuspendLayout();
             this.AppearanceTab.SuspendLayout();
             this.OtherGroupBox.SuspendLayout();
             this.RimGroupBox.SuspendLayout();
@@ -105,6 +113,13 @@
             // 
             // BaseCostTab
             // 
+            this.BaseCostTab.Controls.Add(this.baseCostTotalTextBox);
+            this.BaseCostTab.Controls.Add(this.BaseCostTotalLabel);
+            this.BaseCostTab.Controls.Add(this.BaseCalculateButton);
+            this.BaseCostTab.Controls.Add(this.TradeInTextBox);
+            this.BaseCostTab.Controls.Add(this.TradeInLabel);
+            this.BaseCostTab.Controls.Add(this.BaseCostTextBox);
+            this.BaseCostTab.Controls.Add(this.BaseCostLabel);
             this.BaseCostTab.Location = new System.Drawing.Point(4, 25);
             this.BaseCostTab.Name = "BaseCostTab";
             this.BaseCostTab.Padding = new System.Windows.Forms.Padding(3);
@@ -113,10 +128,71 @@
             this.BaseCostTab.Text = "Base Cost";
             this.BaseCostTab.UseVisualStyleBackColor = true;
             // 
+            // baseCostTotalTextBox
+            // 
+            this.baseCostTotalTextBox.Location = new System.Drawing.Point(112, 292);
+            this.baseCostTotalTextBox.Name = "baseCostTotalTextBox";
+            this.baseCostTotalTextBox.Size = new System.Drawing.Size(100, 22);
+            this.baseCostTotalTextBox.TabIndex = 6;
+            this.baseCostTotalTextBox.Text = "$0.00";
+            // 
+            // BaseCostTotalLabel
+            // 
+            this.BaseCostTotalLabel.AutoSize = true;
+            this.BaseCostTotalLabel.Location = new System.Drawing.Point(29, 292);
+            this.BaseCostTotalLabel.Name = "BaseCostTotalLabel";
+            this.BaseCostTotalLabel.Size = new System.Drawing.Size(76, 17);
+            this.BaseCostTotalLabel.TabIndex = 5;
+            this.BaseCostTotalLabel.Text = "Base Cost:";
+            // 
+            // BaseCalculateButton
+            // 
+            this.BaseCalculateButton.Location = new System.Drawing.Point(100, 224);
+            this.BaseCalculateButton.Name = "BaseCalculateButton";
+            this.BaseCalculateButton.Size = new System.Drawing.Size(92, 35);
+            this.BaseCalculateButton.TabIndex = 4;
+            this.BaseCalculateButton.Text = "Calculate";
+            this.BaseCalculateButton.UseVisualStyleBackColor = true;
+            this.BaseCalculateButton.Click += new System.EventHandler(this.BaseCalculateButton_Click);
+            // 
+            // TradeInTextBox
+            // 
+            this.TradeInTextBox.Location = new System.Drawing.Point(100, 64);
+            this.TradeInTextBox.Name = "TradeInTextBox";
+            this.TradeInTextBox.Size = new System.Drawing.Size(100, 22);
+            this.TradeInTextBox.TabIndex = 3;
+            this.TradeInTextBox.Text = "$0.00";
+            // 
+            // TradeInLabel
+            // 
+            this.TradeInLabel.AutoSize = true;
+            this.TradeInLabel.Location = new System.Drawing.Point(29, 64);
+            this.TradeInLabel.Name = "TradeInLabel";
+            this.TradeInLabel.Size = new System.Drawing.Size(65, 17);
+            this.TradeInLabel.TabIndex = 2;
+            this.TradeInLabel.Text = "Trade In:";
+            // 
+            // BaseCostTextBox
+            // 
+            this.BaseCostTextBox.Location = new System.Drawing.Point(100, 24);
+            this.BaseCostTextBox.Name = "BaseCostTextBox";
+            this.BaseCostTextBox.Size = new System.Drawing.Size(100, 22);
+            this.BaseCostTextBox.TabIndex = 1;
+            this.BaseCostTextBox.Text = "$0.00";
+            // 
+            // BaseCostLabel
+            // 
+            this.BaseCostLabel.AutoSize = true;
+            this.BaseCostLabel.Location = new System.Drawing.Point(18, 24);
+            this.BaseCostLabel.Name = "BaseCostLabel";
+            this.BaseCostLabel.Size = new System.Drawing.Size(76, 17);
+            this.BaseCostLabel.TabIndex = 0;
+            this.BaseCostLabel.Text = "Base Cost:";
+            // 
             // AppearanceTab
             // 
             this.AppearanceTab.Controls.Add(this.AppearanceTotalTextBox);
-            this.AppearanceTab.Controls.Add(this.label1);
+            this.AppearanceTab.Controls.Add(this.AppearanceCostLabel);
             this.AppearanceTab.Controls.Add(this.AppearanceCalculateButton);
             this.AppearanceTab.Controls.Add(this.OtherGroupBox);
             this.AppearanceTab.Controls.Add(this.RimGroupBox);
@@ -128,6 +204,23 @@
             this.AppearanceTab.TabIndex = 1;
             this.AppearanceTab.Text = "Appearance";
             this.AppearanceTab.UseVisualStyleBackColor = true;
+            // 
+            // AppearanceTotalTextBox
+            // 
+            this.AppearanceTotalTextBox.Location = new System.Drawing.Point(167, 326);
+            this.AppearanceTotalTextBox.Name = "AppearanceTotalTextBox";
+            this.AppearanceTotalTextBox.Size = new System.Drawing.Size(100, 22);
+            this.AppearanceTotalTextBox.TabIndex = 8;
+            this.AppearanceTotalTextBox.Text = "$0.00";
+            // 
+            // AppearanceCostLabel
+            // 
+            this.AppearanceCostLabel.AutoSize = true;
+            this.AppearanceCostLabel.Location = new System.Drawing.Point(3, 326);
+            this.AppearanceCostLabel.Name = "AppearanceCostLabel";
+            this.AppearanceCostLabel.Size = new System.Drawing.Size(157, 17);
+            this.AppearanceCostLabel.TabIndex = 7;
+            this.AppearanceCostLabel.Text = "Appearance Cost Total:";
             // 
             // AppearanceCalculateButton
             // 
@@ -162,7 +255,6 @@
             // 
             // TintCheckBox
             // 
-            this.TintCheckBox.AutoCheck = false;
             this.TintCheckBox.AutoSize = true;
             this.TintCheckBox.Location = new System.Drawing.Point(7, 22);
             this.TintCheckBox.Name = "TintCheckBox";
@@ -364,23 +456,6 @@
             this.TotalTextBox.TabIndex = 7;
             this.TotalTextBox.Text = "$0.00";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 326);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Appearance Cost Total:";
-            // 
-            // AppearanceTotalTextBox
-            // 
-            this.AppearanceTotalTextBox.Location = new System.Drawing.Point(167, 326);
-            this.AppearanceTotalTextBox.Name = "AppearanceTotalTextBox";
-            this.AppearanceTotalTextBox.Size = new System.Drawing.Size(100, 22);
-            this.AppearanceTotalTextBox.TabIndex = 8;
-            this.AppearanceTotalTextBox.Text = "$0.00";
-            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(471, 584);
@@ -399,6 +474,8 @@
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             this.Tab.ResumeLayout(false);
+            this.BaseCostTab.ResumeLayout(false);
+            this.BaseCostTab.PerformLayout();
             this.AppearanceTab.ResumeLayout(false);
             this.AppearanceTab.PerformLayout();
             this.OtherGroupBox.ResumeLayout(false);
@@ -477,7 +554,14 @@
         private System.Windows.Forms.RadioButton BlackRadioButton;
         private System.Windows.Forms.RadioButton WhiteRadioButton;
         private System.Windows.Forms.TextBox AppearanceTotalTextBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label AppearanceCostLabel;
+        private System.Windows.Forms.Label BaseCostLabel;
+        private System.Windows.Forms.TextBox BaseCostTextBox;
+        private System.Windows.Forms.TextBox TradeInTextBox;
+        private System.Windows.Forms.Label TradeInLabel;
+        private System.Windows.Forms.Button BaseCalculateButton;
+        private System.Windows.Forms.TextBox baseCostTotalTextBox;
+        private System.Windows.Forms.Label BaseCostTotalLabel;
     }
 }
 
