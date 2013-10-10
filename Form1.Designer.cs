@@ -65,6 +65,13 @@
             this.TotalCalculateButton = new System.Windows.Forms.Button();
             this.TotalLabel = new System.Windows.Forms.Label();
             this.TotalTextBox = new System.Windows.Forms.TextBox();
+            this.PackageGroupBox = new System.Windows.Forms.GroupBox();
+            this.TechCheckBox = new System.Windows.Forms.CheckBox();
+            this.EntertainmentCheckBx = new System.Windows.Forms.CheckBox();
+            this.ComfortCheckBox = new System.Windows.Forms.CheckBox();
+            this.AddOnCalculateButton = new System.Windows.Forms.Button();
+            this.AddOnTotalLabel = new System.Windows.Forms.Label();
+            this.AddOnTotalTextBox = new System.Windows.Forms.TextBox();
             this.Menu.SuspendLayout();
             this.Tab.SuspendLayout();
             this.BaseCostTab.SuspendLayout();
@@ -72,7 +79,9 @@
             this.OtherGroupBox.SuspendLayout();
             this.RimGroupBox.SuspendLayout();
             this.ColourGroupBox.SuspendLayout();
+            this.AddOnTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
+            this.PackageGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // Menu
@@ -108,7 +117,7 @@
             this.Tab.Location = new System.Drawing.Point(12, 177);
             this.Tab.Name = "Tab";
             this.Tab.SelectedIndex = 0;
-            this.Tab.Size = new System.Drawing.Size(309, 395);
+            this.Tab.Size = new System.Drawing.Size(309, 363);
             this.Tab.TabIndex = 1;
             // 
             // BaseCostTab
@@ -123,15 +132,16 @@
             this.BaseCostTab.Location = new System.Drawing.Point(4, 25);
             this.BaseCostTab.Name = "BaseCostTab";
             this.BaseCostTab.Padding = new System.Windows.Forms.Padding(3);
-            this.BaseCostTab.Size = new System.Drawing.Size(301, 366);
+            this.BaseCostTab.Size = new System.Drawing.Size(301, 334);
             this.BaseCostTab.TabIndex = 0;
             this.BaseCostTab.Text = "Base Cost";
             this.BaseCostTab.UseVisualStyleBackColor = true;
             // 
             // baseCostTotalTextBox
             // 
-            this.baseCostTotalTextBox.Location = new System.Drawing.Point(112, 292);
+            this.baseCostTotalTextBox.Location = new System.Drawing.Point(114, 250);
             this.baseCostTotalTextBox.Name = "baseCostTotalTextBox";
+            this.baseCostTotalTextBox.ReadOnly = true;
             this.baseCostTotalTextBox.Size = new System.Drawing.Size(100, 22);
             this.baseCostTotalTextBox.TabIndex = 6;
             this.baseCostTotalTextBox.Text = "$0.00";
@@ -139,7 +149,7 @@
             // BaseCostTotalLabel
             // 
             this.BaseCostTotalLabel.AutoSize = true;
-            this.BaseCostTotalLabel.Location = new System.Drawing.Point(29, 292);
+            this.BaseCostTotalLabel.Location = new System.Drawing.Point(31, 250);
             this.BaseCostTotalLabel.Name = "BaseCostTotalLabel";
             this.BaseCostTotalLabel.Size = new System.Drawing.Size(76, 17);
             this.BaseCostTotalLabel.TabIndex = 5;
@@ -147,7 +157,7 @@
             // 
             // BaseCalculateButton
             // 
-            this.BaseCalculateButton.Location = new System.Drawing.Point(100, 224);
+            this.BaseCalculateButton.Location = new System.Drawing.Point(102, 182);
             this.BaseCalculateButton.Name = "BaseCalculateButton";
             this.BaseCalculateButton.Size = new System.Drawing.Size(92, 35);
             this.BaseCalculateButton.TabIndex = 4;
@@ -200,15 +210,16 @@
             this.AppearanceTab.Location = new System.Drawing.Point(4, 25);
             this.AppearanceTab.Name = "AppearanceTab";
             this.AppearanceTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AppearanceTab.Size = new System.Drawing.Size(301, 366);
+            this.AppearanceTab.Size = new System.Drawing.Size(301, 334);
             this.AppearanceTab.TabIndex = 1;
             this.AppearanceTab.Text = "Appearance";
             this.AppearanceTab.UseVisualStyleBackColor = true;
             // 
             // AppearanceTotalTextBox
             // 
-            this.AppearanceTotalTextBox.Location = new System.Drawing.Point(167, 326);
+            this.AppearanceTotalTextBox.Location = new System.Drawing.Point(170, 299);
             this.AppearanceTotalTextBox.Name = "AppearanceTotalTextBox";
+            this.AppearanceTotalTextBox.ReadOnly = true;
             this.AppearanceTotalTextBox.Size = new System.Drawing.Size(100, 22);
             this.AppearanceTotalTextBox.TabIndex = 8;
             this.AppearanceTotalTextBox.Text = "$0.00";
@@ -216,7 +227,7 @@
             // AppearanceCostLabel
             // 
             this.AppearanceCostLabel.AutoSize = true;
-            this.AppearanceCostLabel.Location = new System.Drawing.Point(3, 326);
+            this.AppearanceCostLabel.Location = new System.Drawing.Point(6, 299);
             this.AppearanceCostLabel.Name = "AppearanceCostLabel";
             this.AppearanceCostLabel.Size = new System.Drawing.Size(157, 17);
             this.AppearanceCostLabel.TabIndex = 7;
@@ -224,7 +235,7 @@
             // 
             // AppearanceCalculateButton
             // 
-            this.AppearanceCalculateButton.Location = new System.Drawing.Point(89, 275);
+            this.AppearanceCalculateButton.Location = new System.Drawing.Point(85, 260);
             this.AppearanceCalculateButton.Name = "AppearanceCalculateButton";
             this.AppearanceCalculateButton.Size = new System.Drawing.Size(78, 28);
             this.AppearanceCalculateButton.TabIndex = 6;
@@ -393,10 +404,14 @@
             // 
             // AddOnTab
             // 
+            this.AddOnTab.Controls.Add(this.AddOnTotalTextBox);
+            this.AddOnTab.Controls.Add(this.AddOnTotalLabel);
+            this.AddOnTab.Controls.Add(this.AddOnCalculateButton);
+            this.AddOnTab.Controls.Add(this.PackageGroupBox);
             this.AddOnTab.Location = new System.Drawing.Point(4, 25);
             this.AddOnTab.Name = "AddOnTab";
             this.AddOnTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AddOnTab.Size = new System.Drawing.Size(301, 366);
+            this.AddOnTab.Size = new System.Drawing.Size(301, 334);
             this.AddOnTab.TabIndex = 2;
             this.AddOnTab.Text = "AddOn";
             this.AddOnTab.UseVisualStyleBackColor = true;
@@ -456,6 +471,76 @@
             this.TotalTextBox.TabIndex = 7;
             this.TotalTextBox.Text = "$0.00";
             // 
+            // PackageGroupBox
+            // 
+            this.PackageGroupBox.Controls.Add(this.ComfortCheckBox);
+            this.PackageGroupBox.Controls.Add(this.TechCheckBox);
+            this.PackageGroupBox.Controls.Add(this.EntertainmentCheckBx);
+            this.PackageGroupBox.Location = new System.Drawing.Point(57, 38);
+            this.PackageGroupBox.Name = "PackageGroupBox";
+            this.PackageGroupBox.Size = new System.Drawing.Size(214, 108);
+            this.PackageGroupBox.TabIndex = 0;
+            this.PackageGroupBox.TabStop = false;
+            this.PackageGroupBox.Text = "Packages";
+            // 
+            // TechCheckBox
+            // 
+            this.TechCheckBox.AutoSize = true;
+            this.TechCheckBox.Location = new System.Drawing.Point(7, 21);
+            this.TechCheckBox.Name = "TechCheckBox";
+            this.TechCheckBox.Size = new System.Drawing.Size(151, 21);
+            this.TechCheckBox.TabIndex = 0;
+            this.TechCheckBox.Text = "Tech Pack (+2500)";
+            this.TechCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // EntertainmentCheckBx
+            // 
+            this.EntertainmentCheckBx.AutoSize = true;
+            this.EntertainmentCheckBx.Location = new System.Drawing.Point(7, 49);
+            this.EntertainmentCheckBx.Name = "EntertainmentCheckBx";
+            this.EntertainmentCheckBx.Size = new System.Drawing.Size(207, 21);
+            this.EntertainmentCheckBx.TabIndex = 1;
+            this.EntertainmentCheckBx.Text = "Entertainment Pack (+1500)";
+            this.EntertainmentCheckBx.UseVisualStyleBackColor = true;
+            // 
+            // ComfortCheckBox
+            // 
+            this.ComfortCheckBox.AutoSize = true;
+            this.ComfortCheckBox.Location = new System.Drawing.Point(7, 76);
+            this.ComfortCheckBox.Name = "ComfortCheckBox";
+            this.ComfortCheckBox.Size = new System.Drawing.Size(160, 21);
+            this.ComfortCheckBox.TabIndex = 1;
+            this.ComfortCheckBox.Text = "Comfort Pack (+750)";
+            this.ComfortCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // AddOnCalculateButton
+            // 
+            this.AddOnCalculateButton.Location = new System.Drawing.Point(105, 182);
+            this.AddOnCalculateButton.Name = "AddOnCalculateButton";
+            this.AddOnCalculateButton.Size = new System.Drawing.Size(74, 31);
+            this.AddOnCalculateButton.TabIndex = 2;
+            this.AddOnCalculateButton.Text = "Calculate";
+            this.AddOnCalculateButton.UseVisualStyleBackColor = true;
+            this.AddOnCalculateButton.Click += new System.EventHandler(this.AddOnCalculateButton_Click);
+            // 
+            // AddOnTotalLabel
+            // 
+            this.AddOnTotalLabel.AutoSize = true;
+            this.AddOnTotalLabel.Location = new System.Drawing.Point(43, 240);
+            this.AddOnTotalLabel.Name = "AddOnTotalLabel";
+            this.AddOnTotalLabel.Size = new System.Drawing.Size(94, 17);
+            this.AddOnTotalLabel.TabIndex = 3;
+            this.AddOnTotalLabel.Text = "Add-on Total:";
+            // 
+            // AddOnTotalTextBox
+            // 
+            this.AddOnTotalTextBox.Location = new System.Drawing.Point(143, 240);
+            this.AddOnTotalTextBox.Name = "AddOnTotalTextBox";
+            this.AddOnTotalTextBox.ReadOnly = true;
+            this.AddOnTotalTextBox.Size = new System.Drawing.Size(100, 22);
+            this.AddOnTotalTextBox.TabIndex = 4;
+            this.AddOnTotalTextBox.Text = "$0.00";
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(471, 584);
@@ -484,7 +569,11 @@
             this.RimGroupBox.PerformLayout();
             this.ColourGroupBox.ResumeLayout(false);
             this.ColourGroupBox.PerformLayout();
+            this.AddOnTab.ResumeLayout(false);
+            this.AddOnTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
+            this.PackageGroupBox.ResumeLayout(false);
+            this.PackageGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -562,6 +651,13 @@
         private System.Windows.Forms.Button BaseCalculateButton;
         private System.Windows.Forms.TextBox baseCostTotalTextBox;
         private System.Windows.Forms.Label BaseCostTotalLabel;
+        private System.Windows.Forms.TextBox AddOnTotalTextBox;
+        private System.Windows.Forms.Label AddOnTotalLabel;
+        private System.Windows.Forms.Button AddOnCalculateButton;
+        private System.Windows.Forms.GroupBox PackageGroupBox;
+        private System.Windows.Forms.CheckBox ComfortCheckBox;
+        private System.Windows.Forms.CheckBox TechCheckBox;
+        private System.Windows.Forms.CheckBox EntertainmentCheckBx;
     }
 }
 

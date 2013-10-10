@@ -115,21 +115,50 @@ namespace AutoCenter
             AppearanceTotalTextBox.Text = "$" + appearanceTotal.ToString("###,###,###.00");
         }
 
+        private void AddOnCalculateButton_Click(object sender, EventArgs e)
+        {
+            double tempAddOn = 0;
+
+            if (TechCheckBox.Checked)
+            {
+                tempAddOn += 2500;
+            }
+
+            if (EntertainmentCheckBx.Checked)
+            {
+                tempAddOn += 1500;
+            }
+
+            if (ComfortCheckBox.Checked)
+            {
+                tempAddOn += 750;
+            }
+
+            addOnTotal = tempAddOn;
+
+            AddOnTotalTextBox.Text = "$" + addOnTotal.ToString("###,###,##0.00");
+        }
+
         private void TotalCalculateButton_Click(object sender, EventArgs e)
         {
             String salesTax;
 
             double d_salesTax;
+            double d_tempFinalCost = 0;
 
             salesTax = SalesTaxTextBox.Text;
             salesTax = salesTax.TrimEnd(invalidChar);
 
             double.TryParse(salesTax, out d_salesTax);
+            d_salesTax = d_salesTax / 100;
 
+            d_tempFinalCost = baseCostTotal + appearanceTotal + addOnTotal;
 
-            totalFinalCost = (baseCostTotal + appearanceTotal + addOnTotal) * d_salesTax;
+            totalFinalCost = d_tempFinalCost + (d_tempFinalCost * d_salesTax);
             TotalTextBox.Text = "$" + totalFinalCost.ToString("###,###,##0.00");
         }
+
+      
 
     }
 }
